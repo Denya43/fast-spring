@@ -1,6 +1,7 @@
 package config;
 
-import aop.LoggingAspect;
+import aop.LoggingEntryAspect;
+import aop.LoggingExitAspect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,13 +12,13 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @EnableAspectJAutoProxy
 public class MyConfig {
 
-//    @Bean
-//    public CustomFrame customFrame() {
-//        return new CustomFrame();
-//    }
+    @Bean
+    public LoggingExitAspect loggingExitAspect() {
+        return new LoggingExitAspect();
+    }
 
     @Bean
-    public LoggingAspect loggingAspect() {
-        return new LoggingAspect();
+    public LoggingEntryAspect loggingEntryAspect() {
+        return new LoggingEntryAspect();
     }
 }
